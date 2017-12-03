@@ -72,6 +72,7 @@ $(document).ready(function () {
 				.replace(/%image%/gi, element.image)
     );
   }
-  
-  $('#table').html(html.join(''));
+	
+	$('#table').html(html.join(''));
+	
 });
