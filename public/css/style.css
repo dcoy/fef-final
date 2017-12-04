@@ -1,7 +1,122 @@
+/* Navbar */
+
+.navbar-default {
+  background-color: #5f5e5e;
+  border-color: #959595;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #959595;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #959595;
+}
+.navbar-default .navbar-toggle {
+  border-color: #959595;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #959595;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #959595;
+  }
+}
+
+#brand-logo {
+  padding-bottom: 40px;
+  filter: invert(100%);
+}
+
+/* Inventory Table */
 #table {
-  padding-top: 50px;
+  border: none;
 }
 
 .row {
-  border: 1px solid #000;
+  width: 100%;
+}
+
+#btn-tax {
+  margin-left: 5px;
+}
+
+/* Contact form */
+.red {
+  color:red;
+}
+
+.form-area {
+  background-color: #FAFAFA;
+  padding: 10px 40px 60px;
+  margin: 10px 0px 60px;
+  border: 1px solid GREY;
+}
+
+/* About page */
+container .about {
+  margin-bottom: 100px;
+}
+
+/* footer */
+
+.panel-footer  {
+  background-color: #5f5e5e;
+  color: white;
+}
+
+footer .social-links {
+  text-align: right;
+  letter-spacing: 4px;
+}
+
+footer .fa {
+  color: white;
 }

@@ -7,49 +7,113 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Contact</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-              aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Brand</a>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img id="brand-logo" src="https://s3.amazonaws.com/fef-final/images/mazda.png" alt="Brand" height="60">
+        </a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="inventory.html">Inventory</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="">
+      <img class="img-responsive" src="https://s3.amazonaws.com/fef-final/teamwork.jpg" alt="teamwork">
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-area">
+        <form role="form">
+          <h3 style="margin-bottom: 25px; text-align: center;">Contact Us!</h3>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
           </div>
-    
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="index.html">Home</a>
-              </li>
-              <li>
-                <a href="inventory.html">Cars</a>
-              </li>
-              <li>
-                <a href="contact.html">Contact</a>
-              </li>
-              <li>
-                <a href="about.html">About</a>
-              </li>
-            </ul>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Email" required>
           </div>
-          <!-- /.navbar-collapse -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Contact Number" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+            <span class="help-block">
+              <p id="characterLeft" class="help-block ">You have reached the limit</p>
+            </span>
+          </div>
+          <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://use.fontawesome.com/42362bd520.js"></script>
+  <footer class="footer">
+      <div class="panel-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <small>© 2017 Mazda</small>
+            </div>
+            <div class="col-md-6 social-links">
+              <a href="https://www.instagram.com/mazdausa/">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.youtube.com/user/mazdausa">
+                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.facebook.com/Mazda/">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.pinterest.com/mazdausa/">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+              <a href="https://github.com/obsidianspork">
+                <i class="fa fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <!-- /.container-fluid -->
-      </nav>
-    <div class="container"></div>
-    <footer class="footer"></footer>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+      </div>
+    </footer>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
 
 </html>
