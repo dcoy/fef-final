@@ -9,15 +9,15 @@
 * [x] The Home page should incorporate a video that plays when the user enters the page.
 
 ### CSS
-* [ ] A minimum of three different fonts.
-* [ ] Each page needs to be styled differently.
+* [x] A minimum of three different fonts.
+* [x] Each page needs to be styled differently.
 
 ### JavaScript/jQuery
 * [x] Use jQuery to dynamically fill the Inventory table.
-* [ ] Use jQuery for immediate search results of inventory, and should display message if no results found.
-* [ ] Ability to calculate tax based on the given vehicle price. (.08% tax)
+* [x] Use jQuery for immediate search results of inventory, and should display message if no results found.
+* [x] Ability to calculate tax based on the given vehicle price. (.08% tax)
 
 ### Bootstrap
-* [ ] Responsive Site using Bootstraps grid system.
-* [ ] Implement a responsive Navbar for mobile and tablet use.
-* [ ] Implement a carousel on the top of Inventory to showcase the cars.
+* [x] Responsive Site using Bootstraps grid system.
+* [x] Implement a responsive Navbar for mobile and tablet use.
+* [x] Implement a carousel on the top of Inventory to showcase the cars.

@@ -1,8 +1,53 @@
+/* Fonts */
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("https://fonts.googleapis.com/css?family=Roboto");
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('https://fonts.googleapis.com/css?family=Quicksand');
+}
+
+@font-face {
+  font-family: 'Nunito-Sans';
+  src: url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+}
+
 /* Navbar */
+
+.navbar-main {
+  background-color: #1d2129 !important;
+  border-radius: 0;
+  border-color: #1d2129 !important;
+}
+
+.navbar-main:hover {
+  background-color: #1d2129 !important;
+  border-radius: 0;
+}
+
+.navbar-inv {
+  background-color: #4CB2B2 !important;
+  border-radius: 0;
+}
+
+.navbar-contact {
+  background-color: #3B5998 !important;
+}
+
+.navbar-about {
+  background-color: #ffc600 !important;
+  border-radius: 0;
+  border-color: #ffc600 !important;
+  color: black;
+}
 
 .navbar-default {
   background-color: #5f5e5e;
   border-color: #959595;
+  font-family: 'Robot', sans-serif;
 }
 .navbar-default .navbar-brand {
   color: #ecf0f1;
@@ -75,7 +120,7 @@
   filter: invert(100%);
 }
 
-/* Inventory Table */
+/* Inventory */
 #table {
   border: none;
 }
@@ -88,7 +133,34 @@
   margin-left: 5px;
 }
 
+.carousel-inner > .item > img {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#search {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.panel-default {
+  border: none;
+}
+
+.search-panel {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  background-color: #4cb2b2;
+  border-radius: 0;
+}
+
+.caption {
+  font-family: 'Quicksand';
+}
+
 /* Contact form */
+
 .red {
   color:red;
 }
@@ -100,9 +172,27 @@
   border: 1px solid GREY;
 }
 
+.contact-form {
+  margin-bottom: 25px;
+}
+
 /* About page */
 container .about {
   margin-bottom: 100px;
+}
+
+.quote {
+  font-family: 'Nunito-Sans', sans-serif;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.list-group {
+  border: none;
+}
+
+#mazdahq {
+  margin-bottom: 25px;
 }
 
 /* footer */
@@ -110,6 +200,17 @@ container .about {
 .panel-footer  {
   background-color: #5f5e5e;
   color: white;
+  font-family: 'Robot', sans-serif;
+}
+
+.about-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffc600 !important;
+  border-radius: 0;
+  border-color: #ffc600 !important;
+  color: black;
 }
 
 footer .social-links {
@@ -119,4 +220,18 @@ footer .social-links {
 
 footer .fa {
   color: white;
+}
+
+.footer-main {
+  background-color: #1d2129 !important;
+  border-radius: 0;
+}
+
+.inv-footer {
+  background-color: #4CB2B2 !important;
+  border-radius: 0;
+}
+
+.footer-contact {
+  background-color: #3B5998 !important;
 }
