@@ -1,6 +1,26 @@
 $(document).ready(function () {
 
-	const data = [
+
+	// Contact Form Chars Remaining
+	$('#characterLeft').text('140 characters left');
+
+	$('#message').keydown(function () {
+		let max = 140;
+		let len = $(this).val().length;
+		if (len >= max) {
+			$('#characterLeft').text('You have reached the limit');
+			$('#characterLeft').addClass('red');
+			$('#btnSubmit').addClass('disabled');
+		}
+		else {
+			let ch = max - len;
+			$('#characterLeft').text(ch + ' characters left');
+			$('#btnSubmit').removeClass('disabled');
+			$('#characterLeft').removeClass('red');
+		}
+	});
+
+	const jsonData = [
 		{
 			"id": 1,
 			"manufacturer": "Mazda",
@@ -43,80 +63,97 @@ $(document).ready(function () {
 		}
 	];
 
-  /*
-    If we want to load it from a json file...
-    $.getJSON('path/to/file.json', function (data) {
-      // do the stuff below right here
-    });
-	*/
-
-	let button = '<button id="btn-tax" class="btn btn-xs btn-success">Add Tax</button>'
+	let taxButton = '<button id="tax-btn" class="btn btn-xs btn-success">Add Tax</button>'
 	
-	const template = `
-		<div class="row">
-			<div class="col-sm-6 col-md-offset-3">
-				<div class="thumbnail">
-					<img src="%image%" class="image-fluid" id="img-%manufacturer%" alt="%model%">
-					<div class="caption">
-						<h3>%year% %model%</h3>
-						<p>$%price% ${button}</p>
-					</div>
-				</div>
-			</div>
-	</div>`;
+	const createTable = function (data) {
+		const template = `
+ 		<div class="row">
+ 			<div class="col-sm-6 col-md-offset-3">
+ 				<div class="thumbnail">
+ 					<img src="%image%" class="image-fluid" id="img-%manufacturer%" alt="%model%">
+ 					<div class="caption text-center">
+ 						<h3>%year% %model%</h3>
+						 <p>$<span id="bfr-price">%price%</span></p>
+						 <p>${taxButton}</p>
+ 					</div>
+ 				</div>
+ 			</div>
+	 </div>`;
 
-	let html = [];
-	for (let i = 0, l = data.length; i < l; i++) {
-		const element = data[i];
-		html.push(
-			template
-				.replace(/%manufacturer%/gi, element.manufacturer)
-				.replace(/%model%/gi, element.model)
-				.replace(/%year%/gi, element.year)
-				.replace(/%price%/gi, element.price)
-				.replace(/%image%/gi, element.image)
-		);
-		let tax = element.price * 0.08;
-		console.log(tax);
-	}
-	
-	$('#table').html(html.join(''));
-
-	// Tax handler
-	// $('body').on('click', '#btn-tax', function(e) {
-	// 	e.preventDefault();
-	// 	let $this = $(this);
-
-	// 	let regPrice = $this.parent().find('.norm-price').text();
-	// 	regPrice = parseInt(regPrice.replace(/\,/g,''));
-
-
-	// 	let total = regPrice + tax;
-
-	// 	if( ! $this.parent().find('.norm-price').parent().hasClass('w-tax') ) {
-	// 			$this.parent().find('.norm-price').html($.number( total ));
-	// 			$this.parent().addClass('w-tax');
-	// 			$this.addClass('disabled');
-	// 	}
-
-	
-	// Contact Form Chars Remaining
-	$('#characterLeft').text('140 characters left');
-
-	$('#message').keydown(function () {
-		let max = 140;
-		let len = $(this).val().length;
-		if (len >= max) {
-			$('#characterLeft').text('You have reached the limit');
-			$('#characterLeft').addClass('red');
-			$('#btnSubmit').addClass('disabled');
+		let html = [];
+		for (let i = 0, l = data.length; i < l; i++) {
+			const element = data[i];
+			html.push(
+				template
+					.replace(/%manufacturer%/gi, element.manufacturer)
+					.replace(/%model%/gi, element.model)
+					.replace(/%year%/gi, element.year)
+					.replace(/%price%/gi, element.price)
+					.replace(/%image%/gi, element.image)
+			);
 		}
-		else {
-			let ch = max - len;
-			$('#characterLeft').text(ch + ' characters left');
-			$('#btnSubmit').removeClass('disabled');
-			$('#characterLeft').removeClass('red');
+		$('#table').html(html.join(''));
+	};
+
+	$("#tax-btn").on("click", function() {
+		
+	});
+
+	createTable(jsonData);
+
+	const filterAndCreate = function (term) {
+		// Filter our data by selected model
+		const filteredData = jsonData.filter((element) => {
+			return element.model.toLowerCase() === term.toLowerCase();
+		});
+		// Rebuild the table
+		createTable(filteredData);
+	};
+
+	// Extract "model" only field
+	const models = jsonData.map((element) => element.model);
+
+	// Setup autocomplete
+	$("#search").autocomplete({
+		selector: '#search',
+		minChars: 2,
+		source: function (term, suggest) {
+			term = term.toLowerCase();
+			const choices = models;
+			let matches = [];
+			for (i = 0; i < choices.length; i++)
+				if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+			suggest(matches);
+		},
+		onSelect: function (e, term, item) {
+			// Filter our data by selected model
+			const filteredData = jsonData.filter((element) => {
+				return element.model.toLowerCase() === term.toLowerCase();
+			});
+			// Rebuild the table
+			createTable(filteredData);
 		}
 	});
 
+	// If you want to filter results as you type, we will add the 'keyup' event to the input
+	// then update the table properly
+	$('#search').on('keyup', function (event) {
+		// Filter our data by selected model
+		const filteredData = jsonData.filter((element) => {
+			// If includes the word, not if it is exactly the same word
+			return element.model.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1;
+		});
+		// Rebuild the table
+		createTable(filteredData);
+	});
+
+	// Price w/tax
+		$("#tax-btn").on("click", function () {
+			let taxPrice = $("#bfr-price").text();
+			let intPrice = parseInt(taxPrice, 10);
+			let tax = (intPrice * 0.08);
+			let taxedPrice = intPrice + tax;
+
+			$("#bfr-price").text(taxedPrice);
+		});
 });
